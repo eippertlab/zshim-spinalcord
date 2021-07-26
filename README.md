@@ -1,4 +1,5 @@
 # zshim-spinalcord
+# under construction
 The code in this repository is associated with the manuscript “Kaptan, M., Vannesjo, S.J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J.C.W., Weiskopf, N., Finsterbusch, J., Eippert, F. (2021). Automated slice-specific z-shimming for fMRI of the human spinal cord.” (biorxiv link of our paper) and the corresponding dataset (https://openneuro.org/datasets/ds003743).
 
 Please note that this repository contains code for two different purposes: while the code contained in directory ZShim_OnlineCalculation can be used for automated calculation of slice-specific z-shims during an experiment, the code contained in directory ZShim_Results can be used to reproduce the results of the above-mentioned manuscript.
