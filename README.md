@@ -12,7 +12,7 @@ FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki), version 5.0 or higher
 
 dcm2niix (https://github.com/rordenlab/dcm2niix), version 1.0.20180622 or higher
 
-### Automated selection of slice-specific z-shims (directory "ZShim_OnlineCalculation")
+## Automated selection of slice-specific z-shims (directory "ZShim_OnlineCalculation")
 The code in directory ZShim_OnlineCalculation and the respective subdirectories (EPI_based for EPI-based selection and FM_based for field map based selection) was used to determine the slice-specific z-shims during data acquisition.
 
 Please see section "2.4.2 Automated selection" in the aforementioned manuscript for a detailed explanation of the automated z-shim methods.
