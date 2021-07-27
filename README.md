@@ -53,7 +53,7 @@ The results of the statistical tests reported in the manuscript can be calculate
 
 Please note that we are not sharing code for section “3.3 Validation of EPI-based automation approach”, because this is based on an (externally acquired) independent data-set, which we cannot publicly share.
 
-#### Helper_Functions
+#### Helper_FunctionsScripts
 This directory contains helper functions and scripts to produce results & figures, called via *ZShimResults_III_I.m* or *ZShimResults_III_II.m*
 
 ##### Figure_Code
