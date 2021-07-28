@@ -2,10 +2,14 @@
 % based on the z-shim reference scan. The output is z-shim indices that maximizes the signal intensity in the cord.
 % The indices will be written to a txt file which will be then can read by the
 % sequence.
+% The indices are written to a .txt file which can then be read by the sequence.
+
 % For more details and description of the method please see the following paper:
+% Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J. C. W., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). 
+% Automated slice-specific z-shimming for fMRI of the human spinal cord. BioRxiv, 2021.07.27.454049. 
+% https://doi.org/10.1101/2021.07.27.454049
 
-
-% To use the code please make sure that FSL, SCT and DCM2NIIX are downloaded and they
+% To use the code please make sure that FSL, SCT and DCM2NIIX are downloaded and that they
 % can be called from MATLAB.
 
 % 27.06.2021
