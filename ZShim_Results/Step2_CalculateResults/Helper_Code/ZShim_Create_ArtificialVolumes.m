@@ -1,7 +1,8 @@
-function ZShim_Create_ArtificialVolumes(subGroup, scttemplatepath,rawdatapath,processdatapath,recalculateResults)
+function ZShim_Create_ArtificialVolumes(subGroup, scttemplatepath,rawdatapath,processdatapath,recalculateResults,fslDir)
 % Creates artificial volumes for the original approaches to be able to
 % later compare the modified FM-based approaches (and the resulting
-% artifical volumes) with the original one
+% artifical volumes) with the original one and to quantify the effects of
+% z-shimming over time.
 % The output is stored in the func folder of each subject in a subfolder
 % called 'reconstructZRef'.
 % 
@@ -13,6 +14,9 @@ function ZShim_Create_ArtificialVolumes(subGroup, scttemplatepath,rawdatapath,pr
 % scttemplatepath:   fullpath, string, PAM50 template location
 % rawdatapath:       fullpath, string, raw data location
 % processeddatapath: fullpath, string, processed data location
+% recalculateResults: True or False
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
 
 if recalculateResults
     cd(rawdatapath)
@@ -85,7 +89,7 @@ if recalculateResults
             
             % smooth the phase image
             system('sct_maths -i phase_swap.nii.gz -smooth 1,1,1 -o phase1.nii.gz');
-            ZShim_Calculate_FMbasedpicks('gre', '', {8, 0, 8, '1'}) % type of the field map, mask, name of the
+            ZShim_Calculate_FMbasedpicks('gre', '', {8, 0, 8, '1'}, fslDir) % type of the field map, mask, name of the
             
         % for FM-based group, calculate EPI-based picks
         elseif isequal(subGroup, 'fm') 

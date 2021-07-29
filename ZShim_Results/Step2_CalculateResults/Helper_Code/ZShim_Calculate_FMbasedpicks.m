@@ -1,13 +1,21 @@
-function ZShim_Calculate_FMbasedpicks(fm_type, maskType,fitParameters)
+function ZShim_Calculate_FMbasedpicks(fm_type, maskType,fitParameters,fslDir)
 
+% calculate the FM-based automated z-shim selection based on field map data.
+% adapted version of the online calculation code ZShimOnlineCalculation_FMbased.m
+% for offline processing
+
+% -----------------
 % inputs
-% fm_type : type of the field map, 'gre' (vendor-based) or 'cbsfl' (in-house)
-% maskType : 'eroded' or 'dilated' or '' (regular) or 'cbsfl'
-% fitParameters: fitSli             
+% fm_type   : string, type of the field map, 'gre' (vendor-based) or 'cbsfl' (in-house)
+% maskType  : string, type of the mask, 'eroded' or 'dilated' or '' (regular) or 'cbsfl'
+% fitParameters: cell, parameters used for fitting      
+% fslDir: string, diretory of FSL
+% -----------------
 
-% set FSL environment
-% Running FSL from matlab
-setenv('FSLDIR', '/afs/cbs.mpg.de/software/fsl/5.0.11/ubuntu-xenial-amd64/');
+% Merve Kaptan, mkaptan@cbs.mpg.de
+
+% set FSL environment to use read_avw function
+setenv('FSLDIR', fslDir);
 fsldir = getenv('FSLDIR');
 fsldirmpath = sprintf('%s/etc/matlab',fsldir);
 path(path, fsldirmpath);

@@ -30,7 +30,7 @@ function results = ZShim_CalculateResults(baseline,manipulated1,manipulated2,cal
 %                   2) coefficient of variation
 %                   3) variance (if selected as input option)
 
-% Merve Kaptan, mkaptan@cbs.mpg.de; mervekaptan5@gmail.com
+% Merve Kaptan, mkaptan@cbs.mpg.de
 % 04.07.2021
 
 

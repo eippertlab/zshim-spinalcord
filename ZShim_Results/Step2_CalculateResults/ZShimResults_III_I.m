@@ -1,10 +1,14 @@
 % In this script, the calculation of the results for the section "3.1 
 % Replication and extension of previous findings" are listed for the 
-% following manuscript: WEBLINK
+% following manuscript: Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., 
+% Oliva, V., Brooks, J. C. W., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). 
+% Automated slice-specific z-shimming for fMRI of the human spinal cord. BioRxiv, 
+% 2021.07.27.454049. https://doi.org/10.1101/2021.07.27.454049
+
 % The organization of the results were kept consistent with the
 % manuscript.
 
-% Merve Kaptan, mkaptan@cbs.mpg.de; mervekaptan5@gmail.com
+% Merve Kaptan, mkaptan@cbs.mpg.de
 % 04.07.2021
 
 % 3.1 Replication and extension of previous findings

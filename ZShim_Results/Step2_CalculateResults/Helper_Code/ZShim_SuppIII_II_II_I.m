@@ -1,4 +1,5 @@
-function results = ZShim_SuppIII_II_II_I(scttemplatepath,rawdatapath,processdatapath,recalculateResults)
+function results = ZShim_SuppIII_II_II_I(scttemplatepath,rawdatapath,processdatapath,recalculateResults, fslDir)
+
 % Use a modified mask for voxel selection: 
 % either eroded by 1 voxel or dilated by 1 voxel.
 % Calculate new zshims, create artificial volumes based on these modified
@@ -6,6 +7,17 @@ function results = ZShim_SuppIII_II_II_I(scttemplatepath,rawdatapath,processdata
 % Compare modified implementation signal to previous one and return the result.
 % If recalculateResults is set to False, no new data will be created, but
 % rather the pre-saved results will be loaded.
+
+% ----------
+% Inputs:
+% ----------
+
+% scttemplatepath:   fullpath, string, PAM50 template location
+% rawdatapath:       fullpath, string, raw data location
+% processeddatapath: fullpath, string, processed data location
+% recalculateResults: True or False
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
 
 if recalculateResults
     cd(rawdatapath)
@@ -58,8 +70,8 @@ if recalculateResults
         
         % calculate the new z-shim selections based on these eroded and masks
         % type of the field map, mask, name of the field map
-        ZShim_Calculate_FMbasedpicks('gre', 'dilated',{8, 0, 8, '1'}); 
-        ZShim_Calculate_FMbasedpicks('gre', 'eroded' ,{8, 0, 8, '1'});
+        ZShim_Calculate_FMbasedpicks('gre', 'dilated',{8, 0, 8, '1'}, fslDir); 
+        ZShim_Calculate_FMbasedpicks('gre', 'eroded' ,{8, 0, 8, '1'}, fslDir);
         
         
     end

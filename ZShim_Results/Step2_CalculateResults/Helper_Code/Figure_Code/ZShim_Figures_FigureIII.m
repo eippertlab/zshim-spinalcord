@@ -1,6 +1,9 @@
-function ZShimFigures_FigureIII(printStatus,datapath,figurepath)
+function ZShim_Figures_FigureIII(printStatus,datapath,figurepath)
 
 % Figure 3
+
+% Merve Kaptan
+% mkaptan@cbs.mpg.de
 
 if  printStatus
     
@@ -67,7 +70,7 @@ end
 
 
 clearvars -except printStatus datapath figurepath
-load([datapath 'signal_templatespace'  filesep 'GroupSingle_FM' filesep 'GM' filesep 'TimeSeries_TSNR' filesep 'Data.mat'])
+load(fullfile(datapath, 'signal_templatespace', 'GroupSingle_FM', 'GM', 'TimeSeries_TSNR', 'Data.mat'))
 
 figPosition  = [801 1 300 700];
 figColor     = [1 1 1];
@@ -177,11 +180,10 @@ if printStatus
         [ path filesep 'Figure_3_EPI_II.svg']);
 end
 
-
 clc
 clearvars -except printStatus datapath figurepath
 
-load([datapath 'signal_templatespace'  filesep 'GroupSingle_FM' filesep 'GM' filesep 'TimeSeries_TSNR' filesep 'Data.mat'])
+load(fullfile(datapath, 'signal_templatespace', 'GroupSingle_FM', 'GM', 'TimeSeries_TSNR', 'Data.mat'))
 
 figPosition   = [0 0 600 600];
 figColor      = [1 1 1];

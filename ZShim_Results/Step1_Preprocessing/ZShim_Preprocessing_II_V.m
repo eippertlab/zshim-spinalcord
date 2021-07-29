@@ -1,7 +1,12 @@
 % Preprocessing- methods section 2.5 
 
 % In this code, the preprocessing steps are listed for the following
-% manuscript: WEBLINK
+% manuscript:  "Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., 
+% Brooks, J. C. W., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). 
+% Automated slice-specific z-shimming for fMRI of the human spinal cord. 
+% BioRxiv, 2021.07.27.454049." and for the following dataset:
+% https://openneuro.org/datasets/ds003743
+
 % The organization of the preprocessing steps was kept consistent with the
 % manuscript.
 
@@ -15,7 +20,7 @@
 % under the "derivatives" parent directory and subject specific
 % subdirectories
 
-% Merve Kaptan, mkaptan@cbs.mpg.de; mervekaptan5@gmail.com
+% Merve Kaptan, mkaptan@cbs.mpg.de
 % 04.07.2021
 %%
 % set paths and directories

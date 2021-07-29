@@ -1,4 +1,4 @@
-function results = ZShim_SuppIII_II_II_II(scttemplatepath,rawdatapath,processdatapath,recalculateResults)
+function results = ZShim_SuppIII_II_II_II(scttemplatepath,rawdatapath,processdatapath,recalculateResults,fslDir)
 % Use different parameters in field map processing and fitting procedure:
 %   i)  Set smoothing kernel to 0, 1 or 2 mm (previously 1mm)
 %   ii) Set slab thickness to 5, 9 or 13 mm (previously 9mm)
@@ -10,6 +10,17 @@ function results = ZShim_SuppIII_II_II_II(scttemplatepath,rawdatapath,processdat
 % Compare modified implementation signal to previous one and return the result.
 % If recalculateResults is set to False, no new data will be created, but
 % rather the pre-saved results will be loaded.
+
+% ----------
+% Inputs:
+% ----------
+
+% scttemplatepath:   fullpath, string, PAM50 template location
+% rawdatapath:       fullpath, string, raw data location
+% processeddatapath: fullpath, string, processed data location
+% recalculateResults: True or False
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
 
 if recalculateResults
     cd(rawdatapath)
@@ -55,7 +66,7 @@ if recalculateResults
             cd(fullfile(processdatapath,subjects(sub).name,'fmap','investigation'));
             
             fm_type = 'gre';
-            ZShims_Calculate_FMbasedpicks(fm_type,[],combs(cbs,:))
+            ZShims_Calculate_FMbasedpicks(fm_type,[],combs(cbs,:),fslDir)
             
         end
         

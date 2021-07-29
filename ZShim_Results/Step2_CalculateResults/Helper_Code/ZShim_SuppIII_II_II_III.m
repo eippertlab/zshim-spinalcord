@@ -1,6 +1,30 @@
-function results = ZShim_SuppIII_II_II_III(scttemplatepath,rawdatapath,processdatapath,recalculateResults)
+function results = ZShim_SuppIII_II_II_III(scttemplatepath,rawdatapath,processdatapath,recalculateResults,fslDir)
+% Adjust the z-shim gradient moment to account for different effective TE 
+% due to field inhomogeneities in AP direction (positive and negative polarity).
+% Calculate new zshims, create artificial volumes based on these modified
+% zshims and extract signal.
+% Compare modified implementation signal to previous one and return the result.
+% If recalculateResults is set to False, no new data will be created, but
+% rather the pre-saved results will be loaded.
+
+% ----------
+% Inputs:
+% ----------
+
+% scttemplatepath:   fullpath, string, PAM50 template location
+% rawdatapath:       fullpath, string, raw data location
+% processeddatapath: fullpath, string, processed data location
+% recalculateResults: True or False
+
+% Merve Kaptan, mkaptan@cbs.mpg.de, MPI CBS; Johanna Vannesjo, NTNU
 
 if recalculateResults
+    
+    setenv('FSLDIR', fslDir);
+    fsldir = getenv('FSLDIR');
+    fsldirmpath = sprintf('%s/etc/matlab',fsldir);
+    path(path, fsldirmpath);
+    setenv('FSLOUTPUTTYPE', 'NIFTI_GZ'); % this to tell what the output type would be
     
     cd(rawdatapath)
     subjects = dir('*sub-*'); % get the list of the subjects
@@ -30,7 +54,7 @@ if recalculateResults
             mask = read_avw(maskFilename);
             mask = logical(mask);
             
-            dTE = 2.46e-3; %difference in echo time
+            dTE = 2.46e-3; % difference in echo time
             HzMax = 1/(2*dTE);
             fmMax = max(abs(fm(:)));
             fm = fm*HzMax/fmMax;
@@ -57,8 +81,9 @@ if recalculateResults
             shimY = shims(find(basis==3),:)/5e-3;   % [Hz/m]
             Zshim = shims(find(basis==4),:);        % [Hz]
             
-            dk = 1/64e-3; % [1/m] FOV 128mm, GRAPPA factor 2, previoulsy 2 pi so we had it in raidans, but everywhere else we had HZ
-            dt = 0.93e-3; % [s] Echo spacing 0.93 ms, should be secionds!!
+            dk = 1/64e-3; % [1/m] FOV 128mm, GRAPPA factor 2, 
+            % previoulsy 2 pi so we had it in radians, but everywhere else we had HZ
+            dt = 0.93e-3; % [s] Echo spacing 0.93 ms, should be seconds
             G_PE = dk/dt; % [Hz/m]
             
             if isequal(teShift{t}, 'plus')
@@ -69,19 +94,26 @@ if recalculateResults
             
             % Check range of Q to force effective TE to lie within readout
             TE = 40e-3; % in seconds
-            N0 = 24; % Number of readout lines before center of k-space (assuming 128 matrix, GRAPPA 2, Partial Fourier 7/8)
-            N1 = 32; % Number of readout lines after center of k-space (assuming 128 matrix, GRAPPA 2, Partial Fourier 7/8)
+            N0 = 24; % Number of readout lines before center of k-space 
+            % (assuming 128 matrix, GRAPPA 2, Partial Fourier 7/8)
+            N1 = 32; % Number of readout lines after center of k-space 
+            % (assuming 128 matrix, GRAPPA 2, Partial Fourier 7/8)
             T0 = TE - N0*dt; % Start of readout
             T1 = TE + N1*dt; % End of readout
             
-            if Q>TE/T0 % Case when refocusing would happen before start of readout - i.e. center of k-space is never reached
+            % Case when refocusing would happen before start of readout 
+            % - i.e. center of k-space is never reached
+            if Q>TE/T0 
                 Q = TE/T0;
-            elseif Q<TE/T1 % Case when refocusing would happen after end of readout - again center of k-space is never reached
+            % Case when refocusing would happen after end of readout 
+            % again center of k-space is never reached
+            elseif Q<TE/T1 
                 Q = TE/T1;
             end
             
             Zshim = Zshim .* Q;           % [Hz]
-            mP = 0.21e-3;                 % [T/m] maximum Z-shim gradient - corresponding to gradient moment yielding refocusing at TE
+            mP = 0.21e-3;                 % [T/m] maximum Z-shim gradient 
+                                          % corresponding to gradient moment yielding refocusing at TE
             mP = mP/floor(zshimSteps/2);  % [T/m] single Z-shim step gradient moment
             gamma = 42.6e6;               % [Hz/T] gyromagnetic ratio
             slice = 5e-3;                 % [m] this is the thickness of our EPI slice

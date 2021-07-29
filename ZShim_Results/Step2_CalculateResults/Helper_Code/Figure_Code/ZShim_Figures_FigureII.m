@@ -2,6 +2,9 @@ function ZShim_Figures_FigureII(printStatus,datapath,figurepath)
 
 % Figure 2
 
+% Merve Kaptan
+% mkaptan@cbs.mpg.de
+
 if  printStatus
     
     path =  fullfile(figurepath, 'Figure2');

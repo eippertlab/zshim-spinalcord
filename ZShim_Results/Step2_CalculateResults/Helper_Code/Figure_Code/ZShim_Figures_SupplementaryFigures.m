@@ -1,4 +1,8 @@
 %Supplementary figures
+
+% Merve Kaptan
+% mkaptan@cbs.mpg.de
+
 clc;clear all;close all
 datapath = '/data/pt_02098/ZShim_BIDS_0807/derivatives/extracted_signal/'; %where the organized folder is to produce the results
 codepath = '/data/pt_02098/ZShim_BIDS_0807/derivatives/code/';             %where all the codes are

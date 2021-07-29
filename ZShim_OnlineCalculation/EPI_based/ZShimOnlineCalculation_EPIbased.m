@@ -1,7 +1,6 @@
 % This is the code to calculate the EPI-based automated z-shim selection
 % based on the z-shim reference scan. The output is z-shim indices that maximizes the signal intensity in the cord.
-% The indices will be written to a txt file which will be then can read by the
-% sequence.
+
 % The indices are written to a .txt file which can then be read by the sequence.
 
 % For more details and description of the method please see the following paper:
@@ -17,7 +16,7 @@
 % mkaptan@cbs.mpg.de
 % Copyright 2021 Merve Kaptan, MPI for Human Cognitive and Brain Sciences, Leipzig
 
-
+clc;clear all;close all
 %% Settings
 
 % Flags global
@@ -31,7 +30,8 @@ mkdir(oFolderDir);                                                              
 % Flags software
 % --------------
 % add fsl to the path
-setenv('FSLDIR', '/afs/cbs.mpg.de/software/fsl/5.0.11/ubuntu-xenial-amd64/');
+fslDir = '/afs/cbs.mpg.de/software/fsl/5.0.11/ubuntu-xenial-amd64/';
+setenv('FSLDIR', fslDir);
 pathFSL = getenv('FSLDIR');
 fsldirmpath = sprintf('%s/etc/matlab',pathFSL);
 path(path, fsldirmpath);

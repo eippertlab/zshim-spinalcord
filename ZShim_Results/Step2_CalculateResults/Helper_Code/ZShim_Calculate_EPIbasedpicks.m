@@ -1,5 +1,16 @@
 function EPI_picks = ZShim_Calculate_EPIbasedpicks(referenceScanName)
 
+% the code to calculate the EPI-based automated z-shim selection
+% based on the z-shim reference scan. 
+% adapted version for post-hoc calculations
+
+% input
+%---------
+
+% referenceScanName: string, the name of the reference measurement
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
+
 numSlices       = 24;                         % Number of slice for EPIs
 zShimMoments    = 21;                         % Number of z-shim moments
 step0           = 0;                          % Create reconstructed z-shim series for no z-shim and manual z-shim

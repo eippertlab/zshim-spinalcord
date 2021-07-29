@@ -1,6 +1,6 @@
 function ZShim_Fitting_ReconstructZShimSeries(dirData, imgRefScan, numSlices, zShimDir, imgRecon)
 % Reconstruct artificial volumes by splitting the reference scan into 
-% zshims and slices and constructing a new image based on provided 
+% volumes (cycled through z-shim moments) and slices and constructing a new image based on provided 
 % zshims for each slice.
 % ----------------------
 % inputs
@@ -10,6 +10,8 @@ function ZShim_Fitting_ReconstructZShimSeries(dirData, imgRefScan, numSlices, zS
 % numSlices     = number of slices
 % zShimDir      = csv or mat file with zShims to be selected per slice
 % imgRecon      = file name for resulting reconstruction image
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
 
 if contains(zShimDir, '.csv')
     

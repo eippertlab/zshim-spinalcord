@@ -1,5 +1,20 @@
 function signal = ZShim_Load_ReconsSignal(processdatapath,subjects,reconsName,reconsMode)
-% Extract signal from reconstructed volumes
+
+% load the extracted signal (.txt file) from different reconstructed volumes
+% average for each slice, put the results in a matrix
+% output: 3D matrix, (subjects x number of reconstructed volumes x slices)
+
+% ----------
+% Inputs:
+% ----------
+
+% processeddatapath: fullpath, string, processed data location
+% subjects:          structure,subjects directory
+% reconsName:        string, name of the reconstrcuted volume
+% reconsMode:        cell of strings, reconstructed acc to which selection
+
+
+% Merve Kaptan, mkaptan@cbs.mpg.de
 
 % cut where all subjects have slices
 ZMin = 710;

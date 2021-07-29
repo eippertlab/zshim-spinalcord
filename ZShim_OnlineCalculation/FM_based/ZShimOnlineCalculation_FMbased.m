@@ -5,8 +5,10 @@
 % sequence.
 
 % For more details and description of the method please see the following paper:
-% Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J. C. W., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). 
-% Automated slice-specific z-shimming for fMRI of the human spinal cord. BioRxiv, 2021.07.27.454049. https://doi.org/10.1101/2021.07.27.454049
+% Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J. C. W., 
+% Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). 
+% Automated slice-specific z-shimming for fMRI of the human spinal cord. BioRxiv, 2021.07.27.454049. 
+% https://doi.org/10.1101/2021.07.27.454049
 
 % To use the code please make sure that FSL and SCT are downloaded and that they
 % can be called from MATLAB.
@@ -15,13 +17,14 @@
 % Merve Kaptan,Johanna Vannesjo
 % mkaptan@cbs.mpg.de
 % Copyright 2021 Merve Kaptan, MPI for Human Cognitive and Brain Sciences,
-% Leipzig; Johanna Vannesjo, NTNU, Trondheim
+% Leipzig; 
+% Johanna Vannesjo, NTNU, Trondheim
 clc;clear all;close all
 %% Settings
 
 % Flags global
 % ------------
-dcmDirname = '/data/pt_02098/ZSHIM_SpeedTest/26946.dd_20190628_115833.PRISMA/FILEZ';            % where dicoms will be sent (from scanner)
+dcmDirname = '/data/pt_02098/26946.dd_20190628_115833.PRISMA/';                                 % where dicoms will be sent (from scanner)
 oFolderPath =  '/data/pt_02306/fMRI_pilot/ZShims/';                                             % the general output directory
 subjectNumber= input('Enter the subject number or name please (needs to be a string input):  ') % name of the subject
 oFolderDir = fullfile(oFolderPath,num2str(subjectNumber));                                      % create the folder for this subject
@@ -30,7 +33,8 @@ mkdir(oFolderDir);                                                              
 % Flags software
 % --------------
 % add fsl to the path
-setenv('FSLDIR', '/afs/cbs.mpg.de/software/fsl/5.0.11/ubuntu-xenial-amd64/');
+fslDir = '/afs/cbs.mpg.de/software/fsl/5.0.11/ubuntu-xenial-amd64/';
+setenv('FSLDIR', fslDir);
 pathFSL = getenv('FSLDIR');
 fsldirmpath = sprintf('%s/etc/matlab',pathFSL);
 path(path, fsldirmpath);
