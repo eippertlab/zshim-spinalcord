@@ -151,6 +151,13 @@ results = ZShim_SuppIII_II_II_VI(rawdatapath,processdatapath,recalculateResults,
 Results_automation{9,1} = 'FM-based, Supp- reliability of fm-based picks';
 Results_automation{9,2} = results;
 
+% 3.2.2.7 Evaluating a histogram-based method for determining the z-shims
+% Note that first the z-shims using the histogram-based approach needs to be calculated with the following IDL script (ZShim_SuppIII_II_II_VII_HistogramEvaluation/EvalzShimsFromB0.pro).
+clear results
+results = ZShim_SuppIII_II_II_VII(rawdatapath,processdatapath,recalculateResults,fslDir);
+Results_automation{9,1} = 'FM-based, Supp- histogram-based';
+Results_automation{9,2} = results;
+
 %% 3.2.3 Comparing all three approaches
 % Compare the three approaches using independent samples t-tests 
 clearvars -except Results_automation datapath printStatus figurepath codepath scttemplatepath rawdatapath recalculateResults saveResults processdatapath fslDir
