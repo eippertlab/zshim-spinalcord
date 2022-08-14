@@ -1,6 +1,6 @@
 # zshim-spinalcord 
 
-The code in this repository is associated with the manuscript ["Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J. C. W., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2021). Automated slice-specific z-shimming for fMRI of the human spinal cord. BioRxiv, 2021.07.27.454049."](https://www.biorxiv.org/content/10.1101/2021.07.27.454049v1) and the corresponding dataset (https://openneuro.org/datasets/ds004068).
+The code in this repository is associated with the manuscript [Kaptan, M., Vannesjo, S. J., Mildner, T., Horn, U., Hartley-Davies, R., Oliva, V., Brooks, J., Weiskopf, N., Finsterbusch, J., & Eippert, F. (2022). Automated slice-specific z-shimming for functional magnetic resonance imaging of the human spinal cord. Human brain mapping, 10.1002/hbm.26018.](https://doi.org/10.1002/hbm.26018) and the corresponding dataset (https://openneuro.org/datasets/ds004068).
 
 Please note that this repository contains code for two different purposes: while the code contained in directory [ZShim_OnlineCalculation](https://github.com/eippertlab/zshim-spinalcord/tree/main/ZShim_OnlineCalculation) can be used for automated calculation of slice-specific z-shims during an experiment, the code contained in directory [ZShim_Results](https://github.com/eippertlab/zshim-spinalcord/tree/main/ZShim_Results) can be used to reproduce the results of the above-mentioned manuscript.
 <p>&nbsp;</p>
